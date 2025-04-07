@@ -14,7 +14,7 @@ setmetatable(M, {
 			if vim.tbl_contains(linewiseObjs, key) then module = "linewise" end
 			if key == "column" then module = "blockwise" end
 			if key == "pyTripleQuotes" then module = "treesitter" end
-			require("various-textobjs.textobjs." .. module)[key](...)
+			return require("various-textobjs.textobjs." .. module)[key](...)
 		end
 	end,
 })

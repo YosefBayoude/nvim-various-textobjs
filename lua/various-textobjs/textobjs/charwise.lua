@@ -35,7 +35,7 @@ function M.subword(scope)
 		tieloser_singleChar = "()%a([_-]?)", -- e.g., "x" in "xSide" or "sideX" (see #75)
 	}
 	local row, startCol, endCol = core.selectClosestTextobj(patterns, scope, 0)
-	if not (row and startCol and endCol) then return end
+	if not (row and startCol and endCol) then return false end
 
 	-----------------------------------------------------------------------------
 	-- EXTRA ADJUSTMENTS
@@ -78,6 +78,7 @@ function M.subword(scope)
 			vim.api.nvim_buf_set_lines(0, row - 1, row, false, { updatedLine })
 		end
 	end
+	return true
 end
 
 function M.toNextClosingBracket()

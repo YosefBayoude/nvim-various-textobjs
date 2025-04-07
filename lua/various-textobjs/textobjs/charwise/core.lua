@@ -144,7 +144,7 @@ function M.selectClosestTextobj(patterns, scope, lookForwLines)
 	end
 
 	if not (closest.row and closest.startCol and closest.endCol) then
-		u.notFoundMsg(lookForwLines)
+		-- u.notFoundMsg(lookForwLines)
 		return
 	end
 

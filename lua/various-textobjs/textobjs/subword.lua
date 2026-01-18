@@ -17,7 +17,7 @@ function M.subword(scope)
 		singleChar = { "()%a([_-]?)", tieloser = true },
 	}
 	local row, startCol, endCol = core.selectClosestTextobj(patterns, scope, 0)
-	if not (row and startCol and endCol) then return end
+	if not (row and startCol and endCol) then return false end
 
 	-----------------------------------------------------------------------------
 	-- EXTRA ADJUSTMENTS
@@ -60,7 +60,9 @@ function M.subword(scope)
 			-- lowercase the following subword
 			local updatedLine = line:sub(1, endCol) .. charAfter:lower() .. line:sub(endCol + 2)
 			vim.api.nvim_buf_set_lines(0, row - 1, row, false, { updatedLine })
+			return true
 		end
+		return true
 	end
 end
 

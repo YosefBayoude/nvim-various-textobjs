@@ -37,7 +37,7 @@ setmetatable(M, {
 			if key == "emoji" then module = "emoji" end
 
 			if module then
-				require("various-textobjs.textobjs." .. module)[key](...)
+				return require("various-textobjs.textobjs." .. module)[key](...)
 			else
 				local msg = ("There is no text object called `%s`.\n\n"):format(key)
 					.. "Make sure it exists in the list of text objects, and that you haven't misspelled it."

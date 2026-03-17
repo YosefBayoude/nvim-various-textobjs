@@ -64,6 +64,7 @@ function M.subword(scope)
 		end
 		return true
 	end
+	return true
 end
 
 --------------------------------------------------------------------------------
